@@ -12,6 +12,7 @@ public class PlayerInput : MonoBehaviour
         movement = GetComponent<Movement>();
         shot = GetComponent<Shoot>();
         cam = Camera.main;
+        GameController.GameControllerInstance.playerTransform = transform;
     }
 
     private void Update()

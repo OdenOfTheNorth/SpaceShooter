@@ -8,12 +8,13 @@ public class Movement : MonoBehaviour
     public Vector2 movementInput;
     public Vector2 dir;
     
-    private Rigidbody2D _body;
+    private Rigidbody2D body;
 
     
     private void Awake()
     {
-        _body = GetComponent<Rigidbody2D>();
+        body = GetComponent<Rigidbody2D>();
+        body.gravityScale = 0.0f;
     }
     
     private void FixedUpdate()
@@ -23,10 +24,10 @@ public class Movement : MonoBehaviour
         //float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         //_body.rotation = angle;
         
-        if (movementInput.sqrMagnitude > 0.1f)
+        if (movementInput.sqrMagnitude > 0.01f)
         {
             movementInput.Normalize();
-            _body.MovePosition(_body.position + moveSpeed * Time.fixedDeltaTime * movementInput);
+            body.MovePosition(body.position + moveSpeed * Time.fixedDeltaTime * movementInput);
         }
     }
 }
