@@ -8,7 +8,10 @@ public class EnemyBehavior : MonoBehaviour
     private Movement movement;
     private UnitHealth health;
     private Transform playerTransform;
-
+    private Vector3 playerPosition;
+    private Vector3 vectorToPlayer;
+    private float stoppingDistance = 3.0f;
+    
     private void Awake()
     {
         movement = GetComponent<Movement>();
@@ -23,14 +26,18 @@ public class EnemyBehavior : MonoBehaviour
 
     void Update()
     {
-        movement.movementInput = playerTransform.position - transform.position;
+        playerPosition = playerTransform.position;
+        vectorToPlayer = playerPosition - transform.position;
+        movement.dir = playerPosition;
 
-        /*
-        if (Input.GetKeyDown(KeyCode.J))
+        if (vectorToPlayer.sqrMagnitude > stoppingDistance * stoppingDistance)
         {
-            health.TakeDamage(21.0f);
+            movement.movementInput = vectorToPlayer;
         }
-        */
+        else
+        {
+            movement.movementInput = Vector3.zero;
+        }
     }
 
     private void OnUnitDied()

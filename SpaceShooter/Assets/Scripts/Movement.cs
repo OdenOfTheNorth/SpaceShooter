@@ -19,7 +19,6 @@ public class Movement : MonoBehaviour
     
     private void FixedUpdate()
     {
-        transform.LookAt(dir);
         transform.rotation = UtilityFunctions.FlatLookAt(dir,transform.position);
         //float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         //_body.rotation = angle;

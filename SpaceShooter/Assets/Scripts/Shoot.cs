@@ -6,7 +6,7 @@ public class Shoot : MonoBehaviour
     private float currentCoolDown = 0.0f;
     public Transform origin;
     public LayerMask HitLayers;
-    
+    public float damage = 50f;
     private void Update()
     {
         currentCoolDown -= Time.deltaTime;
@@ -22,6 +22,12 @@ public class Shoot : MonoBehaviour
 
             if (rayHit)
             {
+                UnitHealth hitUnit = rayHit.transform.GetComponent<UnitHealth>();
+                if (hitUnit)
+                {
+                    hitUnit.TakeDamage(damage);
+                }
+                
                 Debug.Log(rayHit.transform.name);
             }
             

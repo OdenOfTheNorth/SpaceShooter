@@ -36,11 +36,12 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovment.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Movment.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Shoot.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerInput.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UtillityFunctions.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Movement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CameraFollow.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Shoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Movement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyBehavior.cs" />
       </list>
     </option>
   </component>
@@ -84,6 +85,7 @@
       <option name="presentableId" value="Default" />
       <updated>1597913575935</updated>
       <workItem from="1597913582158" duration="12663000" />
+      <workItem from="1597996972955" duration="7215000" />
     </task>
     <servers />
   </component>
@@ -102,6 +104,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
