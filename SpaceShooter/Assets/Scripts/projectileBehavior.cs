@@ -3,14 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class projectileBehavior : MonoBehaviour
+public class ProjectileBehavior : MonoBehaviour
 {
-    private float moveSpeed = 1.0f;
+    private float moveSpeed = 4.0f;
     private float timeToLive = 3.0f;
+    private LayerMask hitLayers = ~0;
+    private float damage = 0;
 
-    private ProjectileShoot HitLayers;
+    public void Initialize(LayerMask layersToHit, float projectileDamage)
+    {
+        hitLayers = layersToHit;
+        damage = projectileDamage;
+    }
     
-    // Update is called once per frame
     void Update()
     {
         timeToLive -= Time.deltaTime;
@@ -18,6 +23,7 @@ public class projectileBehavior : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        transform.position += transform.right * moveSpeed;
+
+        transform.position += Time.deltaTime * moveSpeed * transform.right;
     }
 }
