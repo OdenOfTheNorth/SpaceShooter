@@ -5,6 +5,7 @@
 public class Movement : MonoBehaviour
 {
     public float moveSpeed = 1f;
+    public float acceleration = 0.5f;
     public Vector2 movementInput;
     public Vector2 dir;
     
@@ -26,7 +27,8 @@ public class Movement : MonoBehaviour
         if (movementInput.sqrMagnitude > 0.01f)
         {
             movementInput.Normalize();
-            body.MovePosition(body.position + moveSpeed * Time.fixedDeltaTime * movementInput);
         }
+        
+        body.velocity = Vector2.MoveTowards(body.velocity, movementInput * moveSpeed, acceleration * Time.fixedDeltaTime);
     }
 }

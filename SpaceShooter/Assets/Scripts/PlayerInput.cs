@@ -1,16 +1,19 @@
 ﻿using UnityEngine;
-[RequireComponent(typeof(Movement),typeof(HitscanShoot))]
 
+[RequireComponent(typeof(Movement), typeof(HitscanShoot), typeof(UnitHealth))]
 public class PlayerInput : MonoBehaviour
 {
     private Movement movement;
     private HitscanShoot shot;
+    private UnitHealth health;
     private Camera cam;
     
     private void Awake()
     {
         movement = GetComponent<Movement>();
         shot = GetComponent<HitscanShoot>();
+        health = GetComponent<UnitHealth>();
+        health.OnUnitDied += OnPlayerDied;
         cam = Camera.main;
         GameController.GameControllerInstance.playerTransform = transform;
     }
@@ -24,5 +27,11 @@ public class PlayerInput : MonoBehaviour
         {
             shot.fire();
         }
+    }
+
+    private void OnPlayerDied()
+    {
+        //Debug.Log("oh no!");
+        GameController.GameControllerInstance.PlayerDied();
     }
 }

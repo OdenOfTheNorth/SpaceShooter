@@ -7,12 +7,10 @@ public class ProjectileBehavior : MonoBehaviour
 {
     private float moveSpeed = 4.0f;
     private float timeToLive = 3.0f;
-    private LayerMask hitLayers = ~0;
     private float damage = 0;
 
-    public void Initialize(LayerMask layersToHit, float projectileDamage)
+    public void Initialize(float projectileDamage)
     {
-        hitLayers = layersToHit;
         damage = projectileDamage;
     }
     
@@ -25,5 +23,12 @@ public class ProjectileBehavior : MonoBehaviour
         }
 
         transform.position += Time.deltaTime * moveSpeed * transform.right;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        UnitHealth otherHealth = other.GetComponent<UnitHealth>();
+        otherHealth.TakeDamage(damage);
+        Destroy(gameObject);
     }
 }

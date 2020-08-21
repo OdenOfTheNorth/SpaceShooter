@@ -30,7 +30,7 @@ public class UnitHealth : MonoBehaviour
         
         if (currentHealth <= 0.0f)
         {
-            OnUnitDied();
+            OnUnitDied?.Invoke();
         }
         else if (currentHealth > maxHealth)
         {

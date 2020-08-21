@@ -46,7 +46,7 @@ public class EnemyBehavior : MonoBehaviour
     private void OnUnitDied()
     {
         UpgradeSystem.upgradeSystemInstance.GainExperience(experienceValue);
-        GameController.GameControllerInstance.EnemyKilled();
+        GameController.GameControllerInstance.EnemyDied();
         Destroy(gameObject);
     }
 }

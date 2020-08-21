@@ -9,7 +9,6 @@ public class ProjectileShoot : MonoBehaviour
     private float currentCoolDown = 0.0f;
     
     public Transform origin;
-    public LayerMask hitLayers;
     public float damage = 50f;
     
     
@@ -25,7 +24,7 @@ public class ProjectileShoot : MonoBehaviour
             currentCoolDown = cooldown;
             GameObject projectileInstance = Instantiate(projectile, origin.position, origin.rotation);
             ProjectileBehavior projectileBehavior = projectileInstance.GetComponent<ProjectileBehavior>();
-            projectileBehavior.Initialize(hitLayers, damage);
+            projectileBehavior.Initialize(damage);
         }
         
     }

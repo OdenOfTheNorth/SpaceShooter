@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -20,13 +21,57 @@ public class GameController : MonoBehaviour
 
     private int killedEnemies = 0;
 
+    private bool sceneLoadCallbackRegistered = false;
+
     private void Awake()
     {
-        gameControllerInstance = this;
+        if (gameControllerInstance == null)
+        {
+            gameControllerInstance = this;
+            DontDestroyOnLoad(gameObject);
+
+            if (!sceneLoadCallbackRegistered)
+            {
+                SceneManager.sceneLoaded += ResetKillCounter;
+                sceneLoadCallbackRegistered = true;
+            }
+        }
+        else if (gameControllerInstance != this)
+        {
+            Destroy(gameObject);
+        }
     }
 
-    public void EnemyKilled()
+    public void EnemyDied()
     {
         killedEnemies += 1;
+    }
+
+    public void PlayerDied()
+    {
+        LoadGameOverScene();
+    }
+
+    public void LoadGameOverScene()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void LoadGameplayScene()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    private void ResetKillCounter(Scene loadedScene, LoadSceneMode mode)
+    {
+        if (loadedScene.buildIndex != 2)
+        {
+            killedEnemies = 0;
+        }
     }
 }
