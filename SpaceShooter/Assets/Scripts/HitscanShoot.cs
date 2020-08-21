@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Shoot : MonoBehaviour
+public class HitscanShoot : MonoBehaviour
 {
     private float cooldown = 1.0f; 
     private float currentCoolDown = 0.0f;

@@ -1,16 +1,16 @@
 ﻿using UnityEngine;
-[RequireComponent(typeof(Movement),typeof(Shoot))]
+[RequireComponent(typeof(Movement),typeof(HitscanShoot))]
 
 public class PlayerInput : MonoBehaviour
 {
     private Movement movement;
-    private Shoot shot;
+    private HitscanShoot shot;
     private Camera cam;
     
     private void Awake()
     {
         movement = GetComponent<Movement>();
-        shot = GetComponent<Shoot>();
+        shot = GetComponent<HitscanShoot>();
         cam = Camera.main;
         GameController.GameControllerInstance.playerTransform = transform;
     }

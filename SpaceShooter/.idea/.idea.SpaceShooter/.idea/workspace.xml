@@ -30,18 +30,23 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UtillityFunctions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/projectileBehavior.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovment.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Movment.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerInput.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UtillityFunctions.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CameraFollow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Shoot.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Movement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/HitsacnShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerInput.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ProjectileShot.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EnemyBehavior.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ProjectileShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/projectileBehavior.cs" />
       </list>
     </option>
   </component>
@@ -85,7 +90,8 @@
       <option name="presentableId" value="Default" />
       <updated>1597913575935</updated>
       <workItem from="1597913582158" duration="12663000" />
-      <workItem from="1597996972955" duration="7215000" />
+      <workItem from="1597996972955" duration="7299000" />
+      <workItem from="1598009196428" duration="3195000" />
     </task>
     <servers />
   </component>

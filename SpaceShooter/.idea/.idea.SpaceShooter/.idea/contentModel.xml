@@ -10,9 +10,11 @@
           <e p="CameraController.cs" t="Include" />
           <e p="EnemyBehavior.cs" t="Include" />
           <e p="GameController.cs" t="Include" />
+          <e p="HitscanShoot.cs" t="Include" />
           <e p="Movement.cs" t="Include" />
           <e p="PlayerInput.cs" t="Include" />
-          <e p="Shoot.cs" t="Include" />
+          <e p="projectileBehavior.cs" t="Include" />
+          <e p="ProjectileShoot.cs" t="Include" />
           <e p="UnitHealth.cs" t="Include" />
           <e p="UpgradeSystem.cs" t="Include" />
           <e p="UtillityFunctions.cs" t="Include" />
