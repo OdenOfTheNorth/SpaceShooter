@@ -17,7 +17,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public Transform playerTransform = null;
+    [HideInInspector] public Transform playerTransform = null;
 
     private int killedEnemies = 0;
 
@@ -65,6 +65,11 @@ public class GameController : MonoBehaviour
     public void LoadGameplayScene()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public int GetKills()
+    {
+        return killedEnemies;
     }
 
     private void ResetKillCounter(Scene loadedScene, LoadSceneMode mode)

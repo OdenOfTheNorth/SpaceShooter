@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Movement), typeof(HitscanShoot), typeof(UnitHealth))]
 public class PlayerInput : MonoBehaviour
 {
+    [SerializeField] private Slider healthSlider = null;
+
     private Movement movement;
     private HitscanShoot shot;
     private UnitHealth health;
@@ -14,6 +17,7 @@ public class PlayerInput : MonoBehaviour
         shot = GetComponent<HitscanShoot>();
         health = GetComponent<UnitHealth>();
         health.OnUnitDied += OnPlayerDied;
+        health.OnHealthChanged += OnHealthChanged;
         cam = Camera.main;
         GameController.GameControllerInstance.playerTransform = transform;
     }
@@ -31,7 +35,11 @@ public class PlayerInput : MonoBehaviour
 
     private void OnPlayerDied()
     {
-        //Debug.Log("oh no!");
         GameController.GameControllerInstance.PlayerDied();
+    }
+    
+    private void OnHealthChanged(float maxHealth, float currentHealth)
+    {
+        healthSlider.value = currentHealth / maxHealth;
     }
 }

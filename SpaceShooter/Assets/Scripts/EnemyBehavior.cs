@@ -3,7 +3,8 @@
 [RequireComponent(typeof(Movement), typeof(UnitHealth))]
 public class EnemyBehavior : MonoBehaviour
 {
-    [SerializeField] private int experienceValue = 1;
+    [SerializeField] private float stoppingDistance = 2.0f;
+    [SerializeField] private float maxShootingDistance = 4.5f;
 
     private Movement movement;
     private UnitHealth health;
@@ -11,7 +12,6 @@ public class EnemyBehavior : MonoBehaviour
     private Vector3 playerPosition;
     private Vector3 vectorToPlayer;
     private ProjectileShoot projectileShoot;
-    private float stoppingDistance = 3.0f;
     
     private void Awake()
     {
@@ -28,7 +28,6 @@ public class EnemyBehavior : MonoBehaviour
 
     void Update()
     {
-        projectileShoot.fire();
         playerPosition = playerTransform.position;
         vectorToPlayer = playerPosition - transform.position;
         movement.dir = playerPosition;
@@ -41,12 +40,17 @@ public class EnemyBehavior : MonoBehaviour
         {
             movement.movementInput = Vector3.zero;
         }
+
+        if (vectorToPlayer.sqrMagnitude <= maxShootingDistance * maxShootingDistance)
+        {
+            projectileShoot.fire();
+        }
     }
 
     private void OnUnitDied()
     {
-        UpgradeSystem.upgradeSystemInstance.GainExperience(experienceValue);
         GameController.GameControllerInstance.EnemyDied();
+        EnemySpawner.enemySpawnerInstance.EnemyDied();
         Destroy(gameObject);
     }
 }

@@ -11,6 +11,9 @@ public class UnitHealth : MonoBehaviour
     public delegate void UnitDied();
     public UnitDied OnUnitDied;
 
+    public delegate void HealthChanged(float maxHealth, float currentHeatlh);
+    public HealthChanged OnHealthChanged;
+
     private void Awake()
     {
         currentHealth = maxHealth;
@@ -27,7 +30,9 @@ public class UnitHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-        
+        OnHealthChanged?.Invoke(maxHealth, currentHealth);
+
+
         if (currentHealth <= 0.0f)
         {
             OnUnitDied?.Invoke();
