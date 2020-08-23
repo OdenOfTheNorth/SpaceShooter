@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
     }
 
     [HideInInspector] public Transform playerTransform = null;
+    [HideInInspector] public KillTrackerText killTrackerText = null;
 
     private int killedEnemies = 0;
 
@@ -45,6 +46,7 @@ public class GameController : MonoBehaviour
     public void EnemyDied()
     {
         killedEnemies += 1;
+        killTrackerText?.DisplayKillcount(killedEnemies);
     }
 
     public void PlayerDied()

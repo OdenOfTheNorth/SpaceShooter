@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class KillsText : MonoBehaviour
+public class GameOverKillsText : MonoBehaviour
 {
     private Text text;
 
