@@ -23,7 +23,7 @@ public class ProjectileShoot : MonoBehaviour
         {
             currentCoolDown = cooldown;
             GameObject projectileInstance = Instantiate(projectile, origin.position, origin.rotation);
-            ProjectileBehavior projectileBehavior = projectileInstance.GetComponent<ProjectileBehavior>();
+            Projectile projectileBehavior = projectileInstance.GetComponent<Projectile>();
             projectileBehavior.Initialize(damage);
         }
         
